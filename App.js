@@ -1,5 +1,6 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
+import { StatusBar } from 'expo-status-bar'
 
 // Text, View;
 // StatusBar;
@@ -18,9 +19,12 @@ import React from 'react'
 
 const App = () => {
   return (
-    <View>
-      <Text>Hello World</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+    <StatusBar barStyle="default" />
+    {/* <StatusBar barStyle="dark-content" /> */}
+    
+    <Text style={{ fontSize: 20, textAlign: 'center', marginTop: 50 }}>Hello World</Text>
+  </SafeAreaView>
   )
 }
 
