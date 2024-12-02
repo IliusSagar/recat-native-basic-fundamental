@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, ImageBackground, Pressable } from 'react-native'
+import { View, Text, SafeAreaView, Image, ImageBackground, Pressable, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { Button } from 'react-native-web'
@@ -9,7 +9,7 @@ import { Button } from 'react-native-web'
 // ImageBackground;
 // Button;
 // Pressable;
-// Pressable Opacity;
+// TouchableOpacity;
 // Switch;
 // Modal;
 // TextInput;
@@ -41,6 +41,10 @@ const App = () => {
     <Pressable style={{ padding: 23, backgroundColor: "blue"}} onPress={() => console.log("click me")}>
       <Text style={{ color: "white"}}>Click Me</Text>
     </Pressable>
+
+    <TouchableOpacity style={{ padding: 23, backgroundColor: "red"}} onPress={() => console.log("click me")}>
+    <Text style={{ color: "white"}}>Click Me</Text>
+    </TouchableOpacity>
 
 
   </SafeAreaView>
