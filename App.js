@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, Image, ImageBackground, Pressable, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Button, Switch } from 'react-native-web'
+import { Button, Modal, Switch } from 'react-native-web'
 
 // Text, View;
 // StatusBar;
@@ -20,8 +20,7 @@ import { Button, Switch } from 'react-native-web'
 
 const App = () => {
 
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+ const [modal, setModal] = useState(false);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -29,33 +28,18 @@ const App = () => {
     {/* <StatusBar barStyle="dark-content" /> */}
     
     <Text style={{ fontSize: 20, textAlign: 'center', marginTop: 50 }}>Hello World</Text>
+    
     <Image style={{ width: 100, height: 50}} source={require("./assets/icon.png")}/>
 
-    <ImageBackground style={{height:150}} source={require("./assets/icon.png")}>
-      <Text>hello world</Text>
-    </ImageBackground>
+    <Button title="Open Modal" onPress={() => setModal(true)} />
 
-    <Button 
-    title="Click Me" 
-    color="#000" 
-    accessibilityLabel="Click me button for more info."
-    onPress={() => console.log("clicked")}
-    />
 
-    <Pressable style={{ padding: 23, backgroundColor: "blue"}} onPress={() => console.log("click me")}>
-      <Text style={{ color: "white"}}>Click Me</Text>
-    </Pressable>
-
-    <TouchableOpacity style={{ padding: 23, backgroundColor: "red"}} onPress={() => console.log("click me")}>
-    <Text style={{ color: "white"}}>Click Me</Text>
-    </TouchableOpacity>
-
-    <Switch 
-    trackColor={{ false: "#767577", true: "#81b0ff"}}
-    thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-    value={isEnabled}
-    onValueChange={toggleSwitch}
-    />
+    <Modal visible={modal} animationType="slide" transparent={false}>
+      <View>
+        <Text>This is a modal</Text>
+        <Button title="Close Modal" onPress={() => setModal(false)} />
+      </View>
+    </Modal>
 
 
   </SafeAreaView>
