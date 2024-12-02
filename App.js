@@ -1,6 +1,7 @@
 import { View, Text, SafeAreaView, Image, ImageBackground } from 'react-native'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
+import { Button } from 'react-native-web'
 
 // Text, View;
 // StatusBar;
@@ -29,6 +30,13 @@ const App = () => {
     <ImageBackground style={{height:150}} source={require("./assets/icon.png")}>
       <Text>hello world</Text>
     </ImageBackground>
+
+    <Button 
+    title="Click Me" 
+    color="#000" 
+    accessibilityLabel="Click me button for more info."
+    onPress={() => console.log("clicked")}
+    />
 
 
   </SafeAreaView>
