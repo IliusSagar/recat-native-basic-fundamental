@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, Image, ImageBackground, Pressable, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Button, FlatList, Modal, ScrollView, Switch, TextInput } from 'react-native-web'
+import { ActivityIndicator, Button, FlatList, Modal, ScrollView, Switch, TextInput } from 'react-native-web'
 
 // Text, View;
 // StatusBar;
@@ -15,7 +15,6 @@ import { Button, FlatList, Modal, ScrollView, Switch, TextInput } from 'react-na
 // TextInput;
 // FlatList;
 // ScrollView;
-// RefreshController;
 // ActivityIndicator;
 
 const DATA = [
@@ -62,6 +61,8 @@ const App = () => {
         <Item item={item} key={item.id}/>
       ))}
     </ScrollView>
+
+    <ActivityIndicator size="large" color="black"/>
     
 
   </SafeAreaView>
