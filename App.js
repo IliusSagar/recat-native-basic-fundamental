@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, Image, ImageBackground, Pressable, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Button, FlatList, Modal, Switch, TextInput } from 'react-native-web'
+import { Button, FlatList, Modal, ScrollView, Switch, TextInput } from 'react-native-web'
 
 // Text, View;
 // StatusBar;
@@ -44,7 +44,7 @@ const App = () => {
     
     <Text style={{ fontSize: 20, textAlign: 'center', marginTop: 50 }}>Hello World</Text>
    
-    <FlatList 
+    {/* <FlatList 
     data={DATA} 
     renderItem={({ item }) => <Item item={ item}/>} keyExtractor={(item) => item.id}
     showsVerticalScrollIndicator={false}
@@ -52,7 +52,16 @@ const App = () => {
       gap: 10,
       marginTop: 30,
     }}
-    />
+    /> */}
+
+    <ScrollView 
+    showHorizontalScrollIndicator={false}
+    horizontal={true} 
+    style={{ flex: 1}}>
+      {DATA.map((item) => (
+        <Item item={item} key={item.id}/>
+      ))}
+    </ScrollView>
     
 
   </SafeAreaView>
@@ -63,7 +72,13 @@ export default App
 
 const Item = ({ item }) => {
   return(
-    <View style={{ width: "100%", height: 300, padding: 20, backgroundColor: "blue"}}>
+    <View style={{ 
+      width: 300, 
+      height: 300, 
+      padding: 20, 
+      backgroundColor: "blue", 
+      marginHorizontal: 10
+      }}>
       <Text style={{ color: "white"}}>{item.title}</Text>
     </View>
   )
