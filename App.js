@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, Image, ImageBackground, Pressable, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Button } from 'react-native-web'
+import { Button, Switch } from 'react-native-web'
 
 // Text, View;
 // StatusBar;
@@ -19,6 +19,10 @@ import { Button } from 'react-native-web'
 // ActivityIndicator;
 
 const App = () => {
+
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
     <StatusBar barStyle="default" />
@@ -45,6 +49,13 @@ const App = () => {
     <TouchableOpacity style={{ padding: 23, backgroundColor: "red"}} onPress={() => console.log("click me")}>
     <Text style={{ color: "white"}}>Click Me</Text>
     </TouchableOpacity>
+
+    <Switch 
+    trackColor={{ false: "#767577", true: "#81b0ff"}}
+    thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+    value={isEnabled}
+    onValueChange={toggleSwitch}
+    />
 
 
   </SafeAreaView>
