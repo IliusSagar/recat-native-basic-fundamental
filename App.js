@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, ImageBackground } from 'react-native'
+import { View, Text, SafeAreaView, Image, ImageBackground, Pressable } from 'react-native'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { Button } from 'react-native-web'
@@ -37,6 +37,10 @@ const App = () => {
     accessibilityLabel="Click me button for more info."
     onPress={() => console.log("clicked")}
     />
+
+    <Pressable style={{ padding: 23, backgroundColor: "blue"}} onPress={() => console.log("click me")}>
+      <Text style={{ color: "white"}}>Click Me</Text>
+    </Pressable>
 
 
   </SafeAreaView>
